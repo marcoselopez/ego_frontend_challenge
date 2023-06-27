@@ -2,12 +2,16 @@ import { useState } from "react";
 import { Box, Grid, IconButton, Tab, Tabs, Typography } from "@mui/material";
 import Logo from '../../assets/ego_logo.svg';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useNavigate } from "react-router-dom";
 
 
 const NavbarComponent = () => {
 
   // STATES
   const [value, setValue] = useState(0);
+
+  // HOOKS
+  const navigate = useNavigate();
 
   // METHODS
   const handleChange = (event, newValue) => {
@@ -30,8 +34,8 @@ const NavbarComponent = () => {
         <Grid item xs={4} display='flex'>
           <img src={Logo} alt="EGO-Logo" style={{ marginRight: '2rem' }} />
           <Tabs value={value} onChange={handleChange}>
-            <Tab label='Modelos' sx={{ fontFamily: 'Montserrat'}} />
-            <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat'}} />
+            <Tab label='Modelos' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/models') } />
+            <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/model/:id')} />
           </Tabs>
         </Grid>
 
