@@ -11,5 +11,9 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
+    'no-const-assign': 'warn',
+    'no-this-before-super': 'warn',
+    'no-unused-vars': 'warn',
+    "react/prop-types": 0
   },
 }
