@@ -30,8 +30,10 @@ const NavbarComponent = () => {
         height: '48px',
         borderBottom: '1px solid #CCCCCC',
         padding: '0px 12px',
+        position: 'sticky',
+        backgroundColor: 'white',
         top: 0,
-        left: 0,
+        left: 0
       }}
     >
       <Grid container display='flex' justifyContent='space-between' sx={{ width: '100%'}}>
