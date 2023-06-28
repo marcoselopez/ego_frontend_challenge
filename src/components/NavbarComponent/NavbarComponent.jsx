@@ -15,7 +15,7 @@ const NavbarComponent = () => {
   const navigate = useNavigate();
 
   // CONTEXT
-  const { tabsValue, setTabsValue } = useContext(AppContext);
+  const { tabsValue, setTabsValue, modelId } = useContext(AppContext);
 
   // METHODS
   const handleChange = (event, newValue) => {
@@ -36,8 +36,10 @@ const NavbarComponent = () => {
         position: 'sticky',
         backgroundColor: 'white',
         top: 0,
-        left: 0
+        left: 0,
+        zIndex: 1
       }}
+      className='animate__animated animate__fadeIn'
     >
       <Grid container display='flex' justifyContent='space-between' sx={{ width: '100%'}}>
 
@@ -45,7 +47,7 @@ const NavbarComponent = () => {
           <img src={Logo} alt="EGO-Logo" style={{ marginRight: '2rem' }} />
           <Tabs value={tabsValue} onChange={handleChange}>
             <Tab label='Modelos' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/models') } />
-            <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/model/:id')} />
+            <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate(`/model/${modelId}`)} />
           </Tabs>
         </Grid>
 

@@ -23,4 +23,18 @@ export const carTitleFormat = () => {
   }
 
   return carTitleFormat;
+};
+
+export const heroTitleFormat = () => {
+  let heroTitleFormat = {
+    fontFamily: 'Montserrat',
+    fontWeight: '600',
+    color: '#373737',
+    fontSize: '30px',
+    lineHeight: '35px',
+    letterSpacing: '-1px',
+    marginBottom: '1rem'
+  }
+
+  return heroTitleFormat;
 }

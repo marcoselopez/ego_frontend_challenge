@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl, setFilteredModels, allModels }) => {
   return (
     <>
-      <Grid item xs={10} display='flex' justifyContent='space-between'>
+      <Grid item xs={10} display='flex' justifyContent='space-between' className='animate__animated animate__fadeIn'>
         <Box display='flex' alignItems='center'>
           <Typography sx={{ fontFamily: 'Montserrat', fontWeight: '600', marginRight: '1rem'}}>Filtrar por:</Typography>
           <ToggleButtonGroup
@@ -27,7 +27,7 @@ const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl, setFilte
           </ToggleButtonGroup>
         </Box>
       </Grid>
-      <Grid item xs={2}>
+      <Grid item xs={2} className='animate__animated animate__fadeIn'>
         <Box>
           <CustomSortButton onClick={(e) => setAnchorEl(e.currentTarget)} endIcon={<ExpandMoreIcon style={{ color: '#373737'}}/>} >
             <Typography>Ordenar por</Typography>
