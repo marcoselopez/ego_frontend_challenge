@@ -1,8 +1,18 @@
-import React from 'react'
+import { useContext, useEffect } from "react"
+import AppContext from "../../AppContext"
+
 
 const ModelComponent = () => {
+
+  // CONTEXT
+  const { modelId, setTabsValue } = useContext(AppContext);
+
+  useEffect(() => {
+    setTabsValue(1)
+  }, [])
+
   return (
-    <div>ModelComponent</div>
+    <div>{modelId}</div>
   )
 }
 
