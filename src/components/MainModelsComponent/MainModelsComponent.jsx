@@ -69,7 +69,7 @@ const MainModelsComponent = () => {
   return (
     <Grid container sx={{ padding: '3rem 6rem' }}>
       <Grid item xs={12}>
-        <Typography sx={titleFormat}>Descubrí todos los modelos</Typography>
+        <Typography sx={titleFormat} className='animate__animated animate__fadeInDown'>Descubrí todos los modelos</Typography>
       </Grid>
 
       <FilterComponent 
@@ -85,7 +85,7 @@ const MainModelsComponent = () => {
         <Grid container>
           {
             filteredModels.map((model) => (
-              <Grid item xs={3} display='flex' key={model.id} marginBottom='2rem'>
+              <Grid item xs={3} display='flex' key={model.id} marginBottom='2rem' className='animate__animated animate__fadeIn'>
                 <ItemCardComponent 
                   model={model}
                 />
