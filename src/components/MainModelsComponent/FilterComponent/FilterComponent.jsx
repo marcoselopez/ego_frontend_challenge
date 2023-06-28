@@ -1,8 +1,8 @@
 import { Box, Grid, Menu, MenuItem, ToggleButtonGroup, Typography } from "@mui/material";
-import { CustomSortButton, CustomToggleButton } from "../../styles/CustomComponents";
+import { CustomSortButton, CustomToggleButton } from "../../Utilities/CustomComponents";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl }) => {
+const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl, setFilteredModels, allModels }) => {
   return (
     <>
       <Grid item xs={10} display='flex' justifyContent='space-between'>
@@ -41,19 +41,19 @@ const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl }) => {
             transformOrigin={{ vertical: 'top', horizontal: 'right'}}
             disableScrollLock
           >
-            <MenuItem onClick={() => {}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.id-b.id)); setAnchorEl(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Nada</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.price-a.price)); setAnchorEl(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mayor Precio</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.price-b.price)); setAnchorEl(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Menor Precio</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.year-a.year)); setAnchorEl(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mas nuevos</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.year-b.year)); setAnchorEl(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mas viejos</Typography>
             </MenuItem>
           </Menu>

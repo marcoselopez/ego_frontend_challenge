@@ -21,3 +21,19 @@ export const CustomSortButton = styled(Button)({
     textTransform: 'none'
   }
 });
+
+export const CustomBlackButton = styled(Button)({
+  '.MuiTypography-root': {
+    fontFamily: 'Montserrat',
+    color: 'white',
+    fontWeight: '600',
+    textTransform: 'none'
+  },
+  '&:hover': {
+    background: '#303030'
+  },
+  background: '#191919',
+  width: '152px',
+  height: '34px',
+  borderRadius: '40px'
+})

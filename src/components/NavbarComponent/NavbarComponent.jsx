@@ -1,22 +1,25 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Box, Grid, IconButton, Tab, Tabs, Typography } from "@mui/material";
 import Logo from '../../assets/ego_logo.svg';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useNavigate } from "react-router-dom";
 import MenuComponent from "./MenuComponent/MenuComponent";
+import AppContext from "../../AppContext";
 
 const NavbarComponent = () => {
 
   // STATES
-  const [value, setValue] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // HOOKS
   const navigate = useNavigate();
 
+  // CONTEXT
+  const { tabsValue, setTabsValue } = useContext(AppContext);
+
   // METHODS
   const handleChange = (event, newValue) => {
-    setValue(newValue)
+    setTabsValue(newValue)
   };
 
   const handleClose = () => {
@@ -40,7 +43,7 @@ const NavbarComponent = () => {
 
         <Grid item xs={8} display='flex'>
           <img src={Logo} alt="EGO-Logo" style={{ marginRight: '2rem' }} />
-          <Tabs value={value} onChange={handleChange}>
+          <Tabs value={tabsValue} onChange={handleChange}>
             <Tab label='Modelos' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/models') } />
             <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/model/:id')} />
           </Tabs>
