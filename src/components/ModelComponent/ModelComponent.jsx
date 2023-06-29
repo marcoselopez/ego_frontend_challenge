@@ -6,12 +6,15 @@ import { Box, Grid, Typography } from "@mui/material";
 import HeroComponent from "./HeroComponent/HeroComponent";
 import CarouselItemComponent from "./CarouselItemComponent/CarouselItemComponent";
 import HighlightComponent from "./HighlightComponent/HighlightComponent";
+import { useParams } from "react-router-dom";
 
 const ModelComponent = () => {
 
   // STATES
   const [model, setModel] = useState({});
-  console.log(model)
+
+  // HOOKS
+  const params = useParams();
 
   // CONTEXT
   const { modelId, setTabsValue } = useContext(AppContext);
@@ -22,7 +25,7 @@ const ModelComponent = () => {
   // METHODS
   const getModelById = () => {
     trackPromise(
-      carService.GetModelById(modelId)
+      carService.GetModelById(params.id)
         .then(response => setModel(response.data))
         .catch(error => console.log(error))
     )
