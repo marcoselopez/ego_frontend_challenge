@@ -1,5 +1,5 @@
 ## DEPLOYMENT
-- Site is deployed in: https://marcos-ego-challenge.netlify.app/models
+- Site is deployed in: https://marcos-ego-challenge.netlify.app
 
 ## HOW TO SETUP
 - Clone the repository
