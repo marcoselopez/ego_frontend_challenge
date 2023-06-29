@@ -30,7 +30,7 @@ const ItemCardComponent = ({ model }) => {
       </Grid>
       <Grid item xs={12} display='flex' justifyContent='center'>
         <Box>
-          <img src={model.thumbnail} alt='car-image' style={{ width: '176px', height: '100px', objectFit: 'contain' }} />
+          <img src={model.thumbnail} alt='car-image' style={{ width: '176px', height: '150px', objectFit: 'contain' }} />
         </Box>
       </Grid>
       <Grid item xs={12} display='flex' justifyContent='center'>

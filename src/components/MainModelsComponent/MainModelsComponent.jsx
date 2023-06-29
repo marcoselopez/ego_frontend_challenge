@@ -12,7 +12,8 @@ const MainModelsComponent = () => {
 
   // STATES
   const [filter, setFilter] = useState('all');
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorElSort, setAnchorElSort] = useState(null);
+  const [anchorElFilter, setAnchorElFilter] = useState(null);
   const [allModels, setAllModels] = useState([]);
   const [filteredModels, setFilteredModels] = useState([]);
 
@@ -67,25 +68,27 @@ const MainModelsComponent = () => {
   }, [filter])
 
   return (
-    <Grid container sx={{ padding: '3rem 6rem' }}>
-      <Grid item xs={12}>
+    <Grid container sx={{ padding: {xs: '1rem', md: '3rem 6rem'} }}>
+      <Grid item xs={12} marginBottom='2rem'>
         <Typography sx={titleFormat} className='animate__animated animate__fadeInDown'>Descubrí todos los modelos</Typography>
       </Grid>
 
       <FilterComponent 
         filter={filter}
         handleChange={handleChange}
-        anchorEl={anchorEl}
-        setAnchorEl={setAnchorEl}
+        anchorElSort={anchorElSort}
+        setAnchorElSort={setAnchorElSort}
+        anchorElFilter={anchorElFilter}
+        setAnchorElFilter={setAnchorElFilter}
         allModels={allModels}
         setFilteredModels={setFilteredModels}
       />
 
-      <Grid item xs={12} marginTop='3rem'>
+      <Grid item xs={12} marginTop='3rem' marginBottom={{xs: '2rem', md: 0}}>
         <Grid container>
           {
             filteredModels.map((model) => (
-              <Grid item xs={3} display='flex' key={model.id} marginBottom='2rem' className='animate__animated animate__fadeIn'>
+              <Grid item xs={12} md={3} display='flex' key={model.id} marginBottom='2rem' className='animate__animated animate__fadeIn'>
                 <ItemCardComponent 
                   model={model}
                 />
