@@ -2,11 +2,11 @@ import { Box, Grid, Menu, MenuItem, ToggleButtonGroup, Typography } from "@mui/m
 import { CustomSortButton, CustomToggleButton } from "../../Utilities/CustomComponents";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl, setFilteredModels, allModels }) => {
+const FilterComponent = ({ filter, handleChange, anchorElSort, setAnchorElSort, anchorElFilter, setAnchorElFilter, setFilteredModels, allModels }) => {
   return (
     <>
-      <Grid item xs={10} display='flex' justifyContent='space-between' className='animate__animated animate__fadeIn'>
-        <Box display='flex' alignItems='center'>
+      <Grid item xs={6} md={10} display='flex' justifyContent='space-between' className='animate__animated animate__fadeIn'>
+        <Box display='flex' alignItems='center' sx={{ display: {xs: 'none', md: 'flex'}}}>
           <Typography sx={{ fontFamily: 'Montserrat', fontWeight: '600', marginRight: '1rem'}}>Filtrar por:</Typography>
           <ToggleButtonGroup
             exclusive
@@ -26,34 +26,61 @@ const FilterComponent = ({ filter, handleChange, anchorEl, setAnchorEl, setFilte
             <CustomToggleButton value="suvs">{`SUV's y Crossovers`}</CustomToggleButton>
           </ToggleButtonGroup>
         </Box>
-      </Grid>
-      <Grid item xs={2} className='animate__animated animate__fadeIn'>
-        <Box>
-          <CustomSortButton onClick={(e) => setAnchorEl(e.currentTarget)} endIcon={<ExpandMoreIcon style={{ color: '#373737'}}/>} >
-            <Typography>Ordenar por</Typography>
+        <Box sx={{ display: {xs: 'block', md: 'none'}}}>
+          <CustomSortButton onClick={(e) => setAnchorElFilter(e.currentTarget)} endIcon={<ExpandMoreIcon style={{ color: '#373737' }}/>} >
+            <Typography sx={{ fontSize: {xs: '14px', md: '1rem'}}}>Filtrar por:</Typography>
           </CustomSortButton>
           <Menu
-            anchorEl={anchorEl}
+            anchorEl={anchorElFilter}
             keepMounted
-            open={Boolean(anchorEl)}
-            onClose={() => setAnchorEl(null)}
+            open={Boolean(anchorElFilter)}
+            onClose={() => setAnchorElFilter(null)}
             anchorOrigin={{ vertical:'bottom', horizontal: 'right'}}
             transformOrigin={{ vertical: 'top', horizontal: 'right'}}
             disableScrollLock
           >
-            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.id-b.id)); setAnchorEl(null)}}>
+            <MenuItem onClick={(e) => {handleChange(e, 'all'); setAnchorElFilter(null)}}>
+              <Typography sx={{fontFamily: 'Montserrat'}}>Todos</Typography>
+            </MenuItem>
+            <MenuItem onClick={(e) => {handleChange(e, 'cars'); setAnchorElFilter(null)}}>
+              <Typography sx={{fontFamily: 'Montserrat'}}>Autos</Typography>
+            </MenuItem>
+            <MenuItem onClick={(e) => {handleChange(e, 'pickups'); setAnchorElFilter(null)}}>
+              <Typography sx={{fontFamily: 'Montserrat'}}>Pickups y Comerciales</Typography>
+            </MenuItem>
+            <MenuItem onClick={(e) => {handleChange(e, 'suvs'); setAnchorElFilter(null)}}>
+              <Typography sx={{fontFamily: 'Montserrat'}}>SUVs</Typography>
+            </MenuItem>
+          </Menu>
+        </Box>
+      </Grid>
+      <Grid item xs={6} md={2} className='animate__animated animate__fadeIn'>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end'}}>
+          <CustomSortButton onClick={(e) => setAnchorElSort(e.currentTarget)} endIcon={<ExpandMoreIcon style={{ color: '#373737' }}/>} >
+            <Typography sx={{ fontSize: {xs: '14px', md: '1rem'}}}>Ordenar por</Typography>
+          </CustomSortButton>
+          <Menu
+            anchorEl={anchorElSort}
+            keepMounted
+            open={Boolean(anchorElSort)}
+            onClose={() => setAnchorElSort(null)}
+            anchorOrigin={{ vertical:'bottom', horizontal: 'right'}}
+            transformOrigin={{ vertical: 'top', horizontal: 'right'}}
+            disableScrollLock
+          >
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.id-b.id)); setAnchorElSort(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Nada</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.price-a.price)); setAnchorEl(null)}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.price-a.price)); setAnchorElSort(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mayor Precio</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.price-b.price)); setAnchorEl(null)}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.price-b.price)); setAnchorElSort(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Menor Precio</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.year-a.year)); setAnchorEl(null)}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => b.year-a.year)); setAnchorElSort(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mas nuevos</Typography>
             </MenuItem>
-            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.year-b.year)); setAnchorEl(null)}}>
+            <MenuItem onClick={() => {setFilteredModels(prevState => prevState.sort((a,b) => a.year-b.year)); setAnchorElSort(null)}}>
               <Typography sx={{fontFamily: 'Montserrat'}}>Mas viejos</Typography>
             </MenuItem>
           </Menu>

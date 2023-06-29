@@ -67,7 +67,7 @@ const ModelComponent = () => {
           </div>
         </Box>
       </Grid>
-      <Grid item xs={12} sx={{ padding: '2rem 2rem', marginBottom: '1rem'}}>
+      <Grid item xs={12} sx={{ padding: '2rem 2rem', marginBottom: '2rem'}}>
         {
           model.model_highlights.map((highlight, index) => (
             <HighlightComponent key={highlight.name} order={index} highlight={highlight} />

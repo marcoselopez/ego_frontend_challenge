@@ -2,7 +2,7 @@
 
 export const titleFormat = () => {
   let title = {
-    fontSize: '50px',
+    fontSize: {xs: '30px', md: '50px'},
     fontWeight: 'bolder',
     fontFamily: 'Montserrat',
     letterSpacing: 0,

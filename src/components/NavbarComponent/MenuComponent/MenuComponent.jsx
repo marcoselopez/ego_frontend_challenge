@@ -1,5 +1,6 @@
 import { Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
+import { useNavigate } from "react-router-dom";
 
 const MenuComponent = ({ open, onClose }) => {
 
@@ -7,6 +8,8 @@ const MenuComponent = ({ open, onClose }) => {
   const secondList = ['Toyota Mobility Service', 'Toyota Gazoo Racing', 'Toyota Hibridos'];
   const thirdList = ['Concesionarios', 'Test Drive', 'Contacto'];
   const fourthList = ['Actividades', 'Servicios al Cliente', 'Ventas Especiales', 'Innovación', 'Prensa', 'Acerca de...'];
+
+  const navigate = useNavigate();
 
   return (
     <Drawer
@@ -26,7 +29,11 @@ const MenuComponent = ({ open, onClose }) => {
         <List disablePadding sx={{ textAlign: 'right', width: '100%', paddingRight: '1rem' }}>
           {firstList.map((text, index) => (
             <ListItem key={text} disablePadding>
-              <ListItemButton sx={{ padding: '2px 0' }}>
+              <ListItemButton sx={{ padding: '2px 0' }} onClick={() => {
+                if(text === 'Modelos'){
+                  navigate('/models')
+                }
+              }}>
                 <ListItemText 
                   primary={text}
                   sx={{ 

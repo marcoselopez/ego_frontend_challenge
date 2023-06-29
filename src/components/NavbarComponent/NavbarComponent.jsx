@@ -37,15 +37,16 @@ const NavbarComponent = () => {
         backgroundColor: 'white',
         top: 0,
         left: 0,
-        zIndex: 1
+        zIndex: 1,
       }}
       className='animate__animated animate__fadeIn'
     >
-      <Grid container display='flex' justifyContent='space-between' sx={{ width: '100%'}}>
+      <Grid container display='flex' justifyContent='space-between' alignItems='center' sx={{ width: '100%', height: '100%'}}>
 
+        {/* MOBILE */}
         <Grid item xs={8} display='flex'>
           <img src={Logo} alt="EGO-Logo" style={{ marginRight: '2rem' }} />
-          <Tabs value={tabsValue} onChange={handleChange}>
+          <Tabs value={tabsValue} onChange={handleChange} sx={{ display: {xs: 'none', md: 'block'}}}>
             <Tab label='Modelos' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate('/models') } />
             <Tab label='Ficha de Modelo' sx={{ fontFamily: 'Montserrat', textTransform: 'none' }} onClick={() => navigate(`/model/${modelId}`)} />
           </Tabs>
