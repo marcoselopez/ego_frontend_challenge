@@ -1,1 +1,9 @@
-# ego_frontend_challenge
+## DEPLOYMENT
+- Site is deployed in: https://marcos-ego-challenge.netlify.app/models
+
+## HOW TO SETUP
+- Clone the repository
+- Navigate to the root folder of the proyect
+- Install the packages using "npm install" or "npm i"
+- Run the project using "npm run dev"
+- Click on the URL that "npm run dev" spits out
